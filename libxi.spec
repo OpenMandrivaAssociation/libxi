@@ -1,8 +1,8 @@
 %define libxi %mklibname xi 6
 Name: libxi
 Summary:  X Input Extension Library
-Version: 1.0.1
-Release: %mkrel 2
+Version: 1.0.4
+Release: %mkrel 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
