@@ -1,7 +1,11 @@
-%define libxi %mklibname xi 6
+%define major 6
+%define libxi %mklibname xi %major
+%define libxi_devel %mklibname xi -d
+%define libxi_static_devel %mklibname xi -d -s
+
 Name: libxi
 Summary:  X Input Extension Library
-Version: 1.1.1
+Version: 1.1.2
 Release: %mkrel 1
 Group: Development/X11
 License: MIT
@@ -30,20 +34,21 @@ X Input Extension Library
 
 #-----------------------------------------------------------
 
-%package -n %{libxi}-devel
+%package -n %{libxi_devel}
 Summary: Development files for %{name}
 Group: Development/X11
 
 Requires: %{libxi} = %{version}
 Requires: x11-proto-devel >= 1.0.0
 Provides: libxi-devel = %{version}-%{release}
+Obsoletes: %mklibname xi 6 -d
 
 Conflicts: libxorg-x11-devel < 7.0
 
-%description -n %{libxi}-devel
+%description -n %{libxi_devel}
 Development files for %{name}
 
-%files -n %{libxi}-devel
+%files -n %{libxi_devel}
 %defattr(-,root,root)
 %{_libdir}/libXi.so
 %{_libdir}/libXi.la
@@ -52,18 +57,19 @@ Development files for %{name}
 
 #-----------------------------------------------------------
 
-%package -n %{libxi}-static-devel
+%package -n %{libxi_static_devel}
 Summary: Static development files for %{name}
 Group: Development/X11
-Requires: %{libxi}-devel = %{version}
-Provides: libxi-static-devel = %{version}-%{release}
+Requires:  %{libxi_devel} = %{version}-%{release}
+Provides:  libxi-static-devel = %{version}-%{release}
+Obsoletes: %mklibname xi 6 -d -s
 
 Conflicts: libxorg-x11-static-devel < 7.0
 
-%description -n %{libxi}-static-devel
+%description -n %{libxi_static_devel}
 Static development files for %{name}
 
-%files -n %{libxi}-static-devel
+%files -n %{libxi_static_devel}
 %defattr(-,root,root)
 %{_libdir}/libXi.a
 
@@ -73,8 +79,7 @@ Static development files for %{name}
 %setup -q -n libXi-%{version}
 
 %build
-%configure2_5x	--x-includes=%{_includedir}\
-		--x-libraries=%{_libdir}
+%configure2_5x
 
 %make
 
