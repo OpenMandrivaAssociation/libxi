@@ -5,7 +5,7 @@
 
 Name: libxi
 Summary:  X Input Extension Library
-Version: 1.2.0
+Version: 1.2.1
 Release: %mkrel 1
 Group: Development/X11
 License: MIT
