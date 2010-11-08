@@ -6,7 +6,7 @@
 Name: libxi
 Summary:  X Input Extension Library
 Version: 1.4.0
-Release: %mkrel 1
+Release: %mkrel 2
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
@@ -60,6 +60,8 @@ Development files for %{name}
 %{_libdir}/pkgconfig/xi.pc
 %{_includedir}/X11/extensions/*.h
 %{_mandir}/man3/X*
+%{_datadir}/doc/libXi/doc/*
+%{_datadir}/doc/libXi/specs/*
 
 #-----------------------------------------------------------
 
@@ -107,6 +109,4 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/libXi.so.6
 %{_libdir}/libXi.so.6.1.0
-%{_datadir}/doc/libXi/doc/*
-%{_datadir}/doc/libXi/specs/*
 
