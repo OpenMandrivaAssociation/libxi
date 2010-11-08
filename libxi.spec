@@ -20,6 +20,7 @@ BuildRequires: x11-util-macros >= 1.0.1
 # necessary for building the man pages
 BuildRequires: xmlto
 BuildRequires: asciidoc
+BuildRequires: docbook-dtd412-xml
 
 %description
 X Input Extension Library
