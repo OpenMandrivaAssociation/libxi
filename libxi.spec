@@ -107,12 +107,6 @@ rm -rf %{buildroot}
 %defattr(-,root,root)
 %{_libdir}/libXi.so.6
 %{_libdir}/libXi.so.6.1.0
-%{_datadir}/doc/libXi/doc/porting.html
-%{_datadir}/doc/libXi/doc/porting.txt
-%{_datadir}/doc/libXi/doc/porting.xml
-%{_datadir}/doc/libXi/specs/encoding.xml
-%{_datadir}/doc/libXi/specs/inputlib.html
-%{_datadir}/doc/libXi/specs/inputlib.txt
-%{_datadir}/doc/libXi/specs/inputlib.xml
-%{_datadir}/doc/libXi/specs/library.xml
+%{_datadir}/doc/libXi/doc/*
+%{_datadir}/doc/libXi/specs/*
 
