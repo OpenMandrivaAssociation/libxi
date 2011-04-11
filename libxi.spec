@@ -5,7 +5,7 @@
 
 Name: libxi
 Summary:  X Input Extension Library
-Version: 1.4.1
+Version: 1.4.2
 Release: %mkrel 1
 Group: Development/X11
 License: MIT
@@ -107,6 +107,5 @@ rm -rf %{buildroot}
 
 %files -n %{libxi}
 %defattr(-,root,root)
-%{_libdir}/libXi.so.6
-%{_libdir}/libXi.so.6.1.0
+%{_libdir}/libXi.so.%{major}*
 
