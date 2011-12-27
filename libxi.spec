@@ -67,6 +67,5 @@ rm -rf %{buildroot}
 %{_libdir}/pkgconfig/xi.pc
 %{_includedir}/X11/extensions/*.h
 %{_mandir}/man3/X*
-%{_datadir}/doc/libXi/doc/*
 %{_datadir}/doc/libXi/specs/*
 
