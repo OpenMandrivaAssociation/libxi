@@ -4,15 +4,15 @@
 
 Name: libxi
 Summary:  X Input Extension Library
-Version: 1.5.0
+Version: 1.6.0
 Release: 1
 Group: Development/X11
 License: MIT
 URL: http://xorg.freedesktop.org
 Source0: http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.bz2
 
-BuildRequires: libx11-devel >= 1.3
-BuildRequires: libxext-devel >= 1.1
+BuildRequires: pkgconfig(x11) >= 1.4.99
+BuildRequires: pkgconfig(xext) >= 1.1
 BuildRequires: x11-proto-devel >= 7.5
 BuildRequires: x11-util-macros >= 1.0.1
 # necessary for building the man pages
@@ -66,6 +66,6 @@ rm -rf %{buildroot}
 %{_libdir}/libXi.so
 %{_libdir}/pkgconfig/xi.pc
 %{_includedir}/X11/extensions/*.h
-%{_datadir}/doc/libXi/*.xml
+%{_datadir}/doc/libXi/*
 %{_mandir}/man3/X*
 
