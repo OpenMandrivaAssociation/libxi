@@ -2,49 +2,49 @@
 %define libxi %mklibname xi %{major}
 %define develname %mklibname xi -d
 
-Name: libxi
-Summary:  X Input Extension Library
-Version: 1.6.1
-Release: 2
-Group: Development/X11
-License: MIT
-URL: http://xorg.freedesktop.org
-Source0: http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.bz2
+Name:		libxi
+Summary:	X Input Extension Library
+Version:	1.6.2
+Release:	1
+Group:		Development/X11
+License:	MIT
+URL:		http://xorg.freedesktop.org
+Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.bz2
 
-BuildRequires: pkgconfig(x11) >= 1.4.99
-BuildRequires: pkgconfig(xext) >= 1.1
-BuildRequires: x11-proto-devel >= 7.5
-BuildRequires: x11-util-macros >= 1.0.1
+BuildRequires:	pkgconfig(x11) >= 1.4.99
+BuildRequires:	pkgconfig(xext) >= 1.1
+BuildRequires:	x11-proto-devel >= 7.5
+BuildRequires:	x11-util-macros >= 1.0.1
 # necessary for building the man pages
-BuildRequires: xmlto
-BuildRequires: asciidoc
-BuildRequires: docbook-dtd412-xml
+BuildRequires:	xmlto
+BuildRequires:	asciidoc
+BuildRequires:	docbook-dtd412-xml
 
 %description
-X Input Extension Library
+X Input Extension Library.
 
 %package -n %{libxi}
-Summary:  X Input Extension Library
-Group: Development/X11
-Conflicts: libxorg-x11 < 7.0
-Provides: %{name} = %{EVRD}
+Summary:		X Input Extension Library
+Group:			Development/X11
+Conflicts:		libxorg-x11 < 7.0
+Provides:		%{name} = %{EVRD}
 
 %description -n %{libxi}
-X Input Extension Library
+X Input Extension Library.
 
 %package -n %{develname}
-Summary: Development files for %{name}
-Group: Development/X11
+Summary:		Development files for %{name}
+Group:			Development/X11
 
-Requires: %{libxi} = %{version}
-Provides: libxi-devel = %{EVRD}
-Obsoletes: %{_lib}xi6-devel < 1.6.1
-Obsoletes: %{_lib}xi-static-devel < 1.6.1
-Conflicts: libxorg-x11-devel < 7.0
-Conflicts: x11-proto-devel < 7.5
+Requires:		%{libxi} = %{version}
+Provides:		libxi-devel = %{EVRD}
+Obsoletes:		%{_lib}xi6-devel < 1.6.1
+Obsoletes:		%{_lib}xi-static-devel < 1.6.1
+Conflicts:		libxorg-x11-devel < 7.0
+Conflicts:		x11-proto-devel < 7.5
 
 %description -n %{develname}
-Development files for %{name}
+Development files for %{name}.
 
 %prep
 %setup -q -n libXi-%{version}
@@ -56,7 +56,6 @@ Development files for %{name}
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 %files -n %{libxi}
