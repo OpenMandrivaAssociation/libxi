@@ -14,6 +14,7 @@ Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.ta
 BuildRequires:	pkgconfig(x11) >= 1.4.99
 BuildRequires:	pkgconfig(xext) >= 1.1
 BuildRequires:	x11-proto-devel >= 7.5
+BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	x11-util-macros >= 1.0.1
 # necessary for building the man pages
 BuildRequires:	xmlto
