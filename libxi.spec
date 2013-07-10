@@ -14,7 +14,7 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
 BuildRequires:	pkgconfig(xproto)
-BuildRequires:	x11-util-macros
+BuildRequires:	pkgconfig(xorg-macros)
 # necessary for building the man pages
 BuildRequires:	xmlto
 BuildRequires:	asciidoc
@@ -34,14 +34,14 @@ X Input Extension Library.
 %package -n %{devname}
 Summary:	Development files for %{name}
 Group:		Development/X11
-Requires:	%{libxi} = %{version}
+Requires:	%{libxi} = %{version}-%{release}
 Provides:	%{name}-devel = %{EVRD}
 
 %description -n %{devname}
 Development files for %{name}.
 
 %prep
-%setup -q -n libXi-%{version}
+%setup -qn libXi-%{version}
 
 %build
 %configure2_5x \
