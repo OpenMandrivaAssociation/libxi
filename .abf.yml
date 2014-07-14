@@ -1,4 +1,3 @@
-removed_sources:
-  libXi-1.7.1.tar.bz2: 0737f2344c661523bd5903a727c3371cebb2b0f3
+
 sources:
-  libXi-1.7.2.tar.bz2: 53c90cd52e40065e04886f046383c1e5c507e0c4
+  libXi-1.7.3.tar.bz2: 45457f1775e9dc5bb18b88bf812c7784a14cfd6a
