@@ -4,7 +4,7 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.7.3
+Version:	1.7.4
 Release:	1
 License:	MIT
 Group:		Development/X11
