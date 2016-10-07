@@ -4,8 +4,8 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.7.6
-Release:	3
+Version:	1.7.7
+Release:	1
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
