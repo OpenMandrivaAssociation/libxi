@@ -1,0 +1,54 @@
+From 4c5c8d6246debc06a56120cff71bfdf1877884d0 Mon Sep 17 00:00:00 2001
+From: Emilio Pozuelo Monfort <pochu@debian.org>
+Date: Tue, 25 Oct 2016 21:31:19 +0200
+Subject: [PATCH 1/1] Check that allocating a buffer succeeded
+
+Since we are going to write into the buffer, we should make sure the
+allocation didn't fail.
+
+Reported-by: Julien Cristau <jcristau@debian.org>
+Signed-off-by: Emilio Pozuelo Monfort <pochu@debian.org>
+Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+---
+ src/XIQueryDevice.c | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+diff --git a/src/XIQueryDevice.c b/src/XIQueryDevice.c
+index e3b0c9f..a877d78 100644
+--- a/src/XIQueryDevice.c
++++ b/src/XIQueryDevice.c
+@@ -66,17 +66,18 @@ XIQueryDevice(Display *dpy, int deviceid, int *ndevices_return)
+     {
+ 	*ndevices_return = reply.num_devices;
+ 	info = Xmalloc((reply.num_devices + 1) * sizeof(XIDeviceInfo));
++	buf = Xmalloc(reply.length * 4);
+     }
+     else
+     {
+ 	*ndevices_return = 0;
+ 	info = NULL;
++	buf = NULL;
+     }
+ 
+-    if (!info)
++    if (!info || !buf)
+         goto error;
+ 
+-    buf = Xmalloc(reply.length * 4);
+     _XRead(dpy, buf, reply.length * 4);
+     ptr = buf;
+     end = buf + reply.length * 4;
+@@ -135,9 +136,9 @@ error_loop:
+         Xfree(info[i].name);
+         Xfree(info[i].classes);
+     }
++error:
+     Xfree(info);
+     Xfree(buf);
+-error:
+     UnlockDisplay(dpy);
+ error_unlocked:
+     SyncHandle();
+-- 
+2.8.3
+

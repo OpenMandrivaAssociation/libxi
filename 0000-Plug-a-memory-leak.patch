@@ -1,0 +1,30 @@
+From 7ac03c6c1907a39b5b42b17ad331295b8c85154d Mon Sep 17 00:00:00 2001
+From: Emilio Pozuelo Monfort <pochu@debian.org>
+Date: Tue, 25 Oct 2016 21:31:18 +0200
+Subject: [PATCH 0/1] Plug a memory leak
+
+Introduced in commit 19a9cd6.
+
+Reported-by: Julien Cristau <jcristau@debian.org>
+Signed-off-by: Emilio Pozuelo Monfort <pochu@debian.org>
+Signed-off-by: Peter Hutterer <peter.hutterer@who-t.net>
+---
+ src/XIQueryDevice.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/XIQueryDevice.c b/src/XIQueryDevice.c
+index a457cd6..e3b0c9f 100644
+--- a/src/XIQueryDevice.c
++++ b/src/XIQueryDevice.c
+@@ -135,6 +135,8 @@ error_loop:
+         Xfree(info[i].name);
+         Xfree(info[i].classes);
+     }
++    Xfree(info);
++    Xfree(buf);
+ error:
+     UnlockDisplay(dpy);
+ error_unlocked:
+-- 
+2.8.3
+
