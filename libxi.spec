@@ -4,12 +4,14 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.7.7
+Version:	1.7.8
 Release:	1
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
 Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.bz2
+Patch0:		0000-Plug-a-memory-leak.patch
+Patch1:		0001-Check-that-allocating-a-buffer-succeeded.patch
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
@@ -42,6 +44,7 @@ Development files for %{name}.
 
 %prep
 %setup -qn libXi-%{version}
+%apply_patches
 
 %build
 %configure \
@@ -61,4 +64,3 @@ Development files for %{name}.
 %{_includedir}/X11/extensions/*.h
 %{_datadir}/doc/libXi/*
 %{_mandir}/man3/X*
-
