@@ -2,10 +2,12 @@
 %define libxi %mklibname xi %{major}
 %define devname %mklibname xi -d
 
+%global optflags %{optflags} -O3
+
 Summary:	X Input Extension Library
 Name:		libxi
 Version:	1.7.9
-Release:	4
+Release:	5
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
@@ -41,17 +43,16 @@ Provides:	%{name}-devel = %{EVRD}
 Development files for %{name}.
 
 %prep
-%setup -qn libXi-%{version}
-%apply_patches
+%autosetup -n libXi-%{version} -p1
 
 %build
 %configure \
 	--disable-static
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 %files -n %{libxi}
 %{_libdir}/libXi.so.%{major}*
