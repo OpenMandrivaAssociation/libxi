@@ -11,7 +11,7 @@
 
 %if %{with compat32}
 %define lib32xi libxi%{major}
-%define devname libxi-devel
+%define dev32name libxi-devel
 %endif
 
 %global optflags %{optflags} -O3
@@ -19,7 +19,7 @@
 Summary:	X Input Extension Library
 Name:		libxi
 Version:	1.7.10
-Release:	2
+Release:	3
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
