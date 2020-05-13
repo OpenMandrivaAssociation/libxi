@@ -14,12 +14,18 @@
 %define dev32name libxi-devel
 %endif
 
+# Disabling LTO is a workaround for 32-bit gcc wrongfully
+# omitting symbols. Not visible at build time, but building
+# wine against a gcc LTO-ed version barfs.
+# No harm done because we manually add -flto for the 64-bit
+# build.
+%global _disable_lto 1
 %global optflags %{optflags} -O3
 
 Summary:	X Input Extension Library
 Name:		libxi
 Version:	1.7.10
-Release:	3
+Release:	4
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
@@ -86,7 +92,7 @@ cd ..
 %endif
 mkdir build
 cd build
-%configure
+CFLAGS="%{optflags} -flto" LDFLAGS="%{optflags} -flto" %configure
 
 %build
 %if %{with compat32}
