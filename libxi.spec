@@ -43,6 +43,7 @@ BuildRequires:	docbook-dtd412-xml
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libXext)
 BuildRequires:	devel(libXfixes)
+BuildRequires:	devel(libxcb)
 %endif
 
 %description
