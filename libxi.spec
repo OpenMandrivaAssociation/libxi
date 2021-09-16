@@ -24,8 +24,8 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.7.10
-Release:	4
+Version:	1.8
+Release:	1
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
@@ -86,7 +86,7 @@ Development files for %{name}.
 
 %prep
 %autosetup -n libXi-%{version} -p1
-export CONFIGURE_TOP="`pwd`"
+export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
 cd build32
