@@ -20,7 +20,6 @@
 # No harm done because we manually add -flto for the 64-bit
 # build.
 %global _disable_lto 1
-%global optflags %{optflags} -O3
 
 Summary:	X Input Extension Library
 Name:		libxi
@@ -40,6 +39,7 @@ BuildRequires:	xmlto
 BuildRequires:	asciidoc
 BuildRequires:	docbook-dtd412-xml
 %if %{with compat32}
+BuildRequires:	libc6
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libXext)
 BuildRequires:	devel(libXfixes)
@@ -95,7 +95,7 @@ cd ..
 %endif
 mkdir build
 cd build
-CFLAGS="%{optflags} -flto" LDFLAGS="%{optflags} -flto" %configure
+CFLAGS="%{optflags} -flto" LDFLAGS="%{build_ldflags} -flto" %configure
 
 %build
 %if %{with compat32}
@@ -117,7 +117,7 @@ CFLAGS="%{optflags} -flto" LDFLAGS="%{optflags} -flto" %configure
 %{_libdir}/pkgconfig/xi.pc
 %{_includedir}/X11/extensions/*.h
 %{_datadir}/doc/libXi/*
-%{_mandir}/man3/X*
+%doc %{_mandir}/man3/X*
 
 %if %{with compat32}
 %files -n %{lib32xi}
