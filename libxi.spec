@@ -23,12 +23,12 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.8
-Release:	2
+Version:	1.8.1
+Release:	1
 License:	MIT
 Group:		Development/X11
 Url:		http://xorg.freedesktop.org
-Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.bz2
+Source0:	http://xorg.freedesktop.org/releases/individual/lib/libXi-%{version}.tar.xz
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xext)
 BuildRequires:	pkgconfig(xfixes)
