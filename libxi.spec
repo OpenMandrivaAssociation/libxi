@@ -90,12 +90,19 @@ export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
 cd build32
-%configure32
+%configure32 \
+%if %{cross_compiling}
+	--disable-malloc0returnsnull
+%endif
+
 cd ..
 %endif
 mkdir build
 cd build
-CFLAGS="%{optflags} -flto" LDFLAGS="%{build_ldflags} -flto" %configure
+CFLAGS="%{optflags} -flto" LDFLAGS="%{build_ldflags} -flto" %configure \
+%if %{cross_compiling}
+	--disable-malloc0returnsnull
+%endif
 
 %build
 %if %{with compat32}
