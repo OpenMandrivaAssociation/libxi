@@ -23,7 +23,7 @@
 
 Summary:	X Input Extension Library
 Name:		libxi
-Version:	1.8.2
+Version:	1.8.3
 Release:	1
 License:	MIT
 Group:		Development/X11
@@ -90,7 +90,7 @@ Development files for %{name}.
 %endif
 
 %prep
-%autosetup -n libXi-%{version} -p1
+%autosetup -n libXi-1.8.3 -p1
 export CONFIGURE_TOP="$(pwd)"
 %if %{with compat32}
 mkdir build32
