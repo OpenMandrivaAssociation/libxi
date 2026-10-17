@@ -24,7 +24,7 @@
 Summary:	X Input Extension Library
 Name:		libxi
 Version:	1.8.4
-Release:	1
+Release:	2
 License:	MIT
 Group:		Development/X11
 Url:		https://xorg.freedesktop.org
@@ -45,6 +45,12 @@ BuildRequires:	asciidoc
 BuildRequires:	docbook-dtd412-xml
 %if %{with compat32}
 BuildRequires:	libc6
+# clang -m32 links against the i686 sysroot, which is not in the default chroot.
+BuildRequires:	cross-i686-openmandriva-linux-gnu-clang
+BuildRequires:	cross-i686-openmandriva-linux-gnu-libc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-gcc
+BuildRequires:	cross-i686-openmandriva-linux-gnu-binutils
+BuildRequires:	cross-i686-openmandriva-linux-gnu-kernel-headers
 BuildRequires:	devel(libX11)
 BuildRequires:	devel(libXext)
 BuildRequires:	devel(libXfixes)
